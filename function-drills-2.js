@@ -86,3 +86,29 @@ function howManyDays(month, leapYear){
 }
 
 console.log(howManyDays('February', true));
+
+//rock paper scissors
+
+function rps(choice) {
+    if (choice < 1 && choice > 3 && typeof choice !== "number") {
+        throw new Error("Must provide number between 1-3");
+    }
+
+    let options = ['rock', 'paper', 'scissors'];
+
+    const randomNo = Math.floor(Math.random() * 3) + 1;
+    
+    let aI = options[randomNo-1];
+    let human = options[choice-1];
+
+    if ((choice === 1 && randomNo === 3) || (choice > randomNo)) {
+        return `Human Wins! Human: ${human} Ai: ${aI}`;
+    } else if ((randomNo === 1 && choice === 3) || (choice < randomNo)){
+        return `Computer Wins! Human: ${human} Ai: ${aI}`;
+    } else {
+        return `Tie! Human: ${human} Ai: ${aI}`;
+    }
+
+}
+
+console.log(rps(1));
