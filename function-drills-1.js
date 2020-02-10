@@ -6,8 +6,10 @@ function getYearOfBirth(age) {
 }
 
 function createGreeting(name, age) {
-    if (name == undefined && age == undefined) {
+    if (name == undefined || age == undefined) {
         throw new Error('Arguments not valid');
+    } else if (typeof name !== 'string' || typeof age === NaN) {
+        throw new TypeError('Invalid data type for name/age');
     }
 
     const yearOfBirth = getYearOfBirth(age);
@@ -15,7 +17,7 @@ function createGreeting(name, age) {
 }
 
 try {
-  const greeting1 = createGreeting();
+  const greeting1 = createGreeting(12, "George");
   console.log(greeting1);
 } catch (e) {
   console.log(e);
