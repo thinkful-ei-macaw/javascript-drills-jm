@@ -35,3 +35,12 @@ const filteredNames = filter(myNames, function(name) {
 
 console.log(filteredNames) // => ['Rich', 'Ray']
 // <---- DO NOT EDIT BETWEEN THESE LINES
+
+
+// filter extra credit
+const filterAlt = (arr, fn) => arr.forEach(name => fn(name) ? console.log(name) : null);
+filterAlt(myNames, function(name) {
+  // This is known as a "predicate function" - it's a function that 
+  // only returns a boolean
+  return name[0] === 'R';
+});
