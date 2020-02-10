@@ -20,3 +20,36 @@ const beyond = num => {
 }
 
 console.log(beyond(Infinity));
+
+//cracking the code
+
+function decode(message) {
+    const firstLetter = message.charAt(0);
+
+    if (firstLetter === 'a') {
+        return message.charAt(1);
+    } else if (firstLetter === 'b') {
+        return message.charAt(2);
+    } else if (firstLetter === 'c') {
+        return message.charAt(3);
+    } else if (firstLetter === 'd') {
+        return message.charAt(4);
+    } else {
+        return ' ';
+    }
+}
+
+function decodeMessage(wholeMessage) {
+    let decoded = '';
+    let words = wholeMessage.split(' ');
+
+    for(let i = 0; i <= words.length - 1; i++) {
+        decoded += decode(words[i]);
+    }
+
+    return decoded;
+}
+
+console.log(decode('cycle'));
+
+console.log(decodeMessage('craft block argon meter bells brown croon droop'));
