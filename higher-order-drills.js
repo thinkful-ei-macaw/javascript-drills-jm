@@ -70,3 +70,24 @@ rocksWarning('Main St and Pacific Ave');
 rocksWarning('Centinela Ave and Olympic Blvd');
 policeWarning('I-95 on exit 14A');
 accidentWarning('Oakwood Rd and Pacheco Ave');
+
+//forEach, filter, and map
+
+function movement(turtle) {
+  let newArr = turtle.filter(element => {
+    return element[0] >= 0 && element[1] >= 0;
+  });
+  //newArr.forEach(move => console.log(move));
+
+  let totalSteps = newArr.map(steps => steps[0] + steps[1]);
+
+  let counter = 0;
+
+  totalSteps.forEach(steps => {
+    counter++;
+
+    console.log(`Movement #${counter}: ${steps} ${steps == 0 || steps > 1 ? 'steps' : 'step'} `);
+  });
+}
+
+movement([[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]]);
