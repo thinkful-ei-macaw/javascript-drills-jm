@@ -44,3 +44,24 @@ filterAlt(myNames, function(name) {
   // only returns a boolean
   return name[0] === 'R';
 });
+
+
+// functions as return values
+function hazardWarningCreator(typeOfWarning){
+  let warningCounter = 0;
+
+  return function(location){
+    warningCounter++;
+    console.log(`DANGER! There is a ${typeOfWarning} hazard at ${location}!`);
+    console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} time(s) today!`);
+  }
+}
+
+const rocksWarning = hazardWarningCreator('Rocks on the Road');
+const policeWarning = hazardWarningCreator('Police');
+const accidentWarning = hazardWarningCreator('Accident');
+
+rocksWarning('Main St and Pacific Ave');
+rocksWarning('Centinela Ave and Olympic Blvd');
+policeWarning('I-95 on exit 14A');
+accidentWarning('Oakwood Rd and Pacheco Ave');
