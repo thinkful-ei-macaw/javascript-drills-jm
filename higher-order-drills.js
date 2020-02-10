@@ -49,11 +49,16 @@ filterAlt(myNames, function(name) {
 // functions as return values
 function hazardWarningCreator(typeOfWarning){
   let warningCounter = 0;
+  let time = 'time';
 
   return function(location){
     warningCounter++;
+    if (warningCounter > 1) {
+      time = 'times';
+    }
+
     console.log(`DANGER! There is a ${typeOfWarning} hazard at ${location}!`);
-    console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} time(s) today!`);
+    console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} ${time} today!`);
   }
 }
 
