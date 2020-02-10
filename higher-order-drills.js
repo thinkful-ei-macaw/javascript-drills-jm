@@ -91,3 +91,20 @@ function movement(turtle) {
 }
 
 movement([[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]]);
+
+
+// reduce *******
+function decode(message){
+  let reducer = (initialValue = '', word) => {
+    let char = (word.length == 3) ? ' ' : word[word.length - 1].toUpperCase();
+    return initialValue + char;
+  }
+
+  let words = message.split(' ');
+  let output = words.reduce(reducer, '');
+
+  console.log(output);
+}
+
+decode('noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest');
+
