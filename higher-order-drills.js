@@ -95,9 +95,9 @@ movement([[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]]);
 
 // reduce *******
 function decode(message){
-  let reducer = (initialValue = '', word) => {
+  let reducer = (value, word) => {
     let char = (word.length == 3) ? ' ' : word[word.length - 1].toUpperCase();
-    return initialValue + char;
+    return value + char;
   }
 
   let words = message.split(' ');
